@@ -1,0 +1,59 @@
+.chbody {
+    margin: 0;
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chbody ul {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+    gap: 2rem;
+}
+
+.chbody li {
+    list-style: none;
+}
+
+.chbody h2 {
+    font-family: var(--titlefont);
+    margin-top: 0;
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.chcard:hover h2, .icons {
+    color: rgb(255, 196, 0);
+}
+
+.chbody p {
+    color: white;
+}
+
+.chbody a {
+    text-decoration: none;
+}
+
+.icons {
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    display: flex;
+}
+
+.image:hover {
+    transform: scale(1.05);
+    transition: all .15s ease;
+}
+
+.image:not(:hover) {
+    transition: all .15s ease;
+}

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+:root {
+    --textfont: 'Mulish', sans-serif;
+    --titlefont: 'Merriweather', serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    font-family: var(--textfont);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
