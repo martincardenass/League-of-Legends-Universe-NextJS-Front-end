@@ -29,7 +29,7 @@ export default async function ReviewsPage ({ params }) {
             )
           : null}
       </ul>
-      <AddReview />
+      <AddReview name={name} />
     </div>
 
   )

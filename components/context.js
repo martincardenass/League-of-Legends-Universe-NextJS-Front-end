@@ -1,6 +1,7 @@
 'use client' // * necessary
 import authCredentials from '@/app/users/login/authenticateCredentials'
 import signUpUser from '@/app/users/signup/signupuser'
+import postReview from '@/app/champions/[name]/reviews/new/postReview'
 import decodeJwt from './decodeJwt'
 import { createContext, useContext, useEffect, useState } from 'react' // * creating the context
 
@@ -8,8 +9,17 @@ const AppContext = createContext({})
 
 export const ContextProvider = ({ children }) => {
   const [msg, setMsg] = useState('') // * msg will store error messages when the password is wrong
+  const [reviewMsg, setReviewMsg] = useState('') // * Same this as above, but with Reviews
   const [userInfo, setUserInfo] = useState('') // * used to store user information
   const token = localStorage.getItem('token')
+  const [champion, setChampion] = useState('') // *
+  const championFromToken = localStorage.getItem('champion')
+
+  useEffect(() => {
+    if (championFromToken) {
+      setChampion(championFromToken)
+    }
+  }, [championFromToken])
 
   useEffect(() => { // ! Does not work as expected !!!!
     if (token) { // * if token exists. decode the token and assign the username value to userInfo
@@ -40,8 +50,17 @@ export const ContextProvider = ({ children }) => {
     setMsg(result)
   }
 
+  const addReview = async (e, name) => { // * Passing the champion name as argument
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+    const ratingInt = parseInt(data.rating)
+    const result = await postReview(name, token, ratingInt, data.reviewTitle, data.reviewText)
+
+    setReviewMsg(result)
+  }
+
   return (
-    <AppContext.Provider value={{ userInfo, msg, setMsg, submitLogin, submitSignUp }}>
+    <AppContext.Provider value={{ userInfo, msg, setMsg, submitLogin, submitSignUp, addReview, reviewMsg, champion }}>
       {children}
     </AppContext.Provider>
   )

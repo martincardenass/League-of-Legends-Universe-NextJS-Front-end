@@ -1,4 +1,7 @@
 .body {
+    padding-top: 1rem;
+    border-top: 1px solid #997a00;
+    border-bottom: 1px solid #997a00;
     background-color: #07006d27;
 }
 
@@ -68,4 +71,19 @@
 
 .footer button:hover {
     background-color: rgb(255, 217, 0);
+}
+
+.addreviewbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.notyou {
+    color: cyan;
+}
+
+.notyou:hover {
+    text-decoration: underline;
 }

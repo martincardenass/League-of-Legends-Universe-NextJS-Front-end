@@ -1,0 +1,10 @@
+.addreviewbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cyan {
+    color: cyan;
+}
