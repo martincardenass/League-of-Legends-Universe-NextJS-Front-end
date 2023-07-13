@@ -37,16 +37,16 @@ const IndChampPage = async ({ children, params }) => {
   ].slice(0, 5) // * will only be used if the amount of champions that share the same Region and Role of the current champion is less than 5.
 
   return (
-    <div className={styles.body}>
-      <div className={styles.championinfo}>
-        <div className={styles.championinfocontent}>
+    <main className={styles.body}>
+      <article className={styles.championinfo}>
+        <section className={styles.championinfocontent}>
           <h1>{champion.name}</h1>
-          <p className={styles.catchphrase}>{champion.catchphrase}&nbsp;<div style={{ color: 'white' }}>-&nbsp;{champion.release_date.slice(0, 10)}</div></p>
+          <p className={styles.catchphrase}>{champion.catchphrase}&nbsp;<span style={{ color: 'white' }}>-&nbsp;{champion.release_date.slice(0, 10)}</span></p>
           <p className={styles.description}>"{champion.description}"</p>
           <p />
           <Icons champion={champion} />
-        </div>
-        <div className={styles.images}>
+        </section>
+        <section className={styles.images}>
           <Image
             src={champion.image}
             alt={champion.name}
@@ -54,12 +54,12 @@ const IndChampPage = async ({ children, params }) => {
             height={560}
             quality={100}
           />
-        </div>
-      </div>
+        </section>
+      </article>
       {/* Show the additional images if they exist, if not: return null */}
       {champion.additionalImages.length >= 1
         ? (
-          <div className={styles.slidercontainer}><ImageSlider champion={champion} /></div>
+          <article className={styles.slidercontainer}><ImageSlider champion={champion} /></article>
           )
         : (
             null
@@ -139,7 +139,7 @@ const IndChampPage = async ({ children, params }) => {
             ))}
           </ul>
           )}
-    </div>
+    </main>
   )
 }
 

@@ -13,7 +13,7 @@ const AddReview = ({ name }) => {
   }
 
   return (
-    <div className={styles.addreviewbody}>
+    <main className={styles.addreviewbody}>
       {username && (
         <p>
           Add a review as {username.charAt(0).toUpperCase() + username.slice(1)}
@@ -23,7 +23,7 @@ const AddReview = ({ name }) => {
           </Link>
         </p>
       )}
-      <div className={styles.footer}>
+      <section className={styles.footer}>
         {username
           ? (
             <Link href={`reviews/new?champion=${name}`}>
@@ -35,8 +35,8 @@ const AddReview = ({ name }) => {
               <button>Log in to add a review</button>
             </Link>
             )}
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 

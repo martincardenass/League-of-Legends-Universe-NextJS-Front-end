@@ -109,9 +109,9 @@ const ImageSlider = ({ champion }) => {
   }
 
   return (
-    <div ref={reference} className={styles.slider}>
+    <section ref={reference} className={styles.slider}>
       {images}
-    </div>
+    </section>
   )
 }
 

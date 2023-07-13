@@ -19,7 +19,7 @@ export default async function ListOfChampions () {
   const champions = await getChamps() // * get the data
 
   return (
-    <div className={styles.chbody}>
+    <main className={styles.chbody}>
       <ul>
         {champions.map((champs) => (
           <li key={champs.champion_id} className={styles.chcard}>
@@ -33,18 +33,18 @@ export default async function ListOfChampions () {
                 quality={100}
               />
               <h2>{champs.name}</h2>
-              <div className={styles.icons}>
+              <section className={styles.icons}>
                 <Link href={`regions/${champs.region_Name}`}>
                   <Image src={champs.region_Emblem} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
                 </Link>
                 <Link href={`roles/${champs.role_Name}`}>
                   <Image src={champs.role_Icon} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
                 </Link>
-              </div>
+              </section>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   )
 }

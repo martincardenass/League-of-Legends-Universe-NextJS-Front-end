@@ -1,0 +1,70 @@
+.banner {
+    position: relative;
+    display: flex;
+    grid-template-rows: auto auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannercontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    grid-row: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannercontent h1 {
+    /* border: 10px solid #ffffff; */
+    padding: 2rem;
+    margin-top: -20px;
+    font-size: 100px;
+    font-family: var(--titlefont);
+}
+
+.bannerimgdiv {
+    position: relative;
+}
+
+.bannerimgdiv::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+}
+
+.bannerimg {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+}
+
+.bannercontentimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regiondesc {
+    width: 50%;
+    margin: 0 5rem;
+    padding: 2rem;
+    border: 2px solid white;
+    text-align: center;
+}
+
+.recommendations {
+    display: flex;
+}
