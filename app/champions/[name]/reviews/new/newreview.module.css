@@ -8,3 +8,66 @@
 .cyan {
     color: cyan;
 }
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    padding: 5rem;
+    padding-top: 1rem;
+    border: 1px solid #997a00;
+    background-color: #07006d27;
+}
+
+.fields1 {
+    width: 100%;
+}
+
+.fields {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    /* width: 500px; */
+}
+
+.fieldreview {
+    width: 80%;
+    height: 100px;
+}
+
+.fields input[type='radio'] {
+    height: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.fields label {
+    color: white;
+    font-size: 72px;
+}
+
+/* general sibling combinator (~) combined with flex row reverse to achieve what we wanted */
+.fields label:hover,
+.fields label:hover ~ label {
+    cursor: pointer;
+    color: red;
+}
+
+.clicked {
+    color: red;
+}
+
+.rwsg {
+    margin-top: -2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}

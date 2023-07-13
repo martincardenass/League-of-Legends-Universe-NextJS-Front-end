@@ -50,10 +50,10 @@ export const ContextProvider = ({ children }) => {
     setMsg(result)
   }
 
-  const addReview = async (e, name) => { // * Passing the champion name as argument
+  const addReview = async (e, name, heartCount) => { // * Passing the champion name as argument
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
-    const ratingInt = parseInt(data.rating)
+    const ratingInt = parseInt(heartCount)
     const result = await postReview(name, token, ratingInt, data.reviewTitle, data.reviewText)
 
     setReviewMsg(result)

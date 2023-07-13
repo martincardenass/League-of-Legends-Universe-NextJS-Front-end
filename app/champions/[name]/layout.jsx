@@ -2,6 +2,7 @@ import getIndividualChamp from './FetchChamp'
 import getReview from './reviews/FetchReviews'
 import getRelatedChamps from './FetchRelatedChamps'
 import getChampsByRegion from '@/app/regions/[name]/FetchChampsByRegion'
+import ReviewChildren from './reviews/ReviewChildren'
 import shuffle from '@/components/shuffle'
 import styles from './championsname.module.css'
 import ImageSlider from './ImageSlider'
@@ -43,7 +44,6 @@ const IndChampPage = async ({ children, params }) => {
           <h1>{champion.name}</h1>
           <p className={styles.catchphrase}>{champion.catchphrase}&nbsp;<span style={{ color: 'white' }}>-&nbsp;{champion.release_date.slice(0, 10)}</span></p>
           <p className={styles.description}>"{champion.description}"</p>
-          <p />
           <Icons champion={champion} />
         </section>
         <section className={styles.images}>
@@ -64,19 +64,7 @@ const IndChampPage = async ({ children, params }) => {
         : (
             null
           )}
-      {/* If at least one review exist, display a link to the reviews page, if none exist, display a message */}
-      {review.length >= 1
-        ? (
-          <>
-            <Link href={`/champions/${champion.name}/reviews`}>
-              <h1 className={styles.texts}>Show reviews</h1>
-            </Link>
-            {children}
-          </>
-          )
-        : (
-          <h2 className={styles.texts}>{champion.name} has no reviews yet.</h2>
-          )}
+      <ReviewChildren review={review} champion={champion}>{children}</ReviewChildren> {/* Instead of passing children as props */}
       <h1 className={styles.texts}>Related champions:</h1>
       {/* filteredRelatedChamps returns a collection of champions that share the same region and role, however, some champions do not have even one champion that mets this condition
           so we check if the length filteredRelatedChamps is more than one */}
