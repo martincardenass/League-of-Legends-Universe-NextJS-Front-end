@@ -42,7 +42,7 @@ const RegionModal = ({ regions }) => {
                 {regionSelected.name}
               </Link>
             </h1>
-            <div className={styles.blackbanner}>
+            <section className={styles.blackbanner}>
               <span className={styles.selectedregtext}>
                 <p
                   dangerouslySetInnerHTML={{
@@ -52,7 +52,7 @@ const RegionModal = ({ regions }) => {
                   }}
                 />
               </span>
-            </div>
+            </section>
           </>
         )}
       </section>

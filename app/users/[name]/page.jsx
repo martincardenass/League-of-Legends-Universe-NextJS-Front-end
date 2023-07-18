@@ -1,45 +1,75 @@
 'use client'
-import getRegisteredUsers from '../FetchUsers'
-import UserInformation from './userInfo'
-import logout from '../logout'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import getIUser from './FetchIUser'
+import Image from 'next/image'
+import styles from './profile.module.css'
+import useUserInfo from './userInfo'
+import UserReviews from './UserReviews'
 
-export default function UserPage ({ params }) {
-  const [usernames, setUsernames] = useState([])
-  const { username, id, role, email } = UserInformation()
-  const router = useRouter()
+const Users = ({ params }) => {
+  const { tokenUsername } = useUserInfo()
+  const username = params.name
+  const [user, setUser] = useState(null)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    async function fetchUsernames () {
-      const { names } = await getRegisteredUsers()
-      setUsernames(names)
+    const fetchUser = async () => {
+      try {
+        const data = await getIUser(username)
+        setUser(data)
+      } catch (error) {
+        setError(error.message)
+      }
     }
 
-    fetchUsernames()
-  }, [])
+    fetchUser()
+  }, [username])
 
-  for (let i = 0; i < usernames.length; i++) { // ! need to keep this iteration for the 404 push to work
-    if (usernames.includes(params.name)) { // * check if the user in the URL is included in the set of registered users (from database)
-      return (
-        <>
-          {/* Check if the logged username is equal to the URL name, if it is, display its profile, if not, prompt them to login  */}
-          {username === params.name
-            ? (
-              <>
-                <p>Username: {username} with ID {id}</p>
-                <p>You are: {role}, {role === 'user' ? (<>no admin rights</>) : (<>you have admin rights</>)}</p>
-                <p>Email: {email}</p>
-                <p onClick={logout}>Logout</p>
-              </>
-              )
-            : (<p>Is it you, {params.name}? <Link href='/users/login'>Log In</Link></p>)}
-        </>
-      )
-    }
-    if (!usernames.includes(params.name)) { // * if the user its not included in the set of registered users (from db), return 404
-      return router.push('/404')
-    }
+  if (error) {
+    return (
+      <section className={styles.body}>
+        <h1 style={{ fontSize: '48px' }}>{error}</h1>
+      </section>
+    )
   }
+
+  if (!user) {
+    return (
+      <section className={styles.body}>
+        <h1 style={{ fontSize: '48px' }}>Loading...</h1>
+      </section>
+    )
+  }
+
+  return (
+    <article className={styles.body}>
+      <section className={styles.userbanner}>
+        <section className={styles.picture}>
+          <Image
+            src={user.profilePicture}
+            alt={user.username}
+            width={100}
+            height={100}
+          />
+        </section>
+        <section className={styles.usermodel}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h1>{user.username}</h1>
+            {tokenUsername === user.username
+              ? (
+                <span style={{ color: 'cyan', marginLeft: '10px' }}>
+                  Its you!
+                </span>
+                )
+              : null}
+          </div>
+          <h3>{user.role}</h3>
+          <h2>{user.email}</h2>
+        </section>
+      </section>
+      <UserReviews username={user.username} />
+    </article>
+  )
 }
+
+export default Users

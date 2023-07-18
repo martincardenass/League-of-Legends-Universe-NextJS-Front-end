@@ -1,4 +1,4 @@
-async function getRegisteredUsers () {
+async function getUsers () {
   const res = await fetch('http://localhost:5222/api/User/users')
   // ! FIX API URL FROM .env
 
@@ -6,10 +6,10 @@ async function getRegisteredUsers () {
     throw new Error('Failed to fetch data')
   }
 
-  const registeredUsers = await res.json()
-  const names = registeredUsers.map(n => n.username) // extract username
+  const users = await res.json()
+  const names = users.map(n => n.username) // extract username
 
-  return { registeredUsers, names }
+  return { users, names }
 }
 
-export default getRegisteredUsers
+export default getUsers

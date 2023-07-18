@@ -36,7 +36,7 @@ export function Navigation () {
   }
 
   return (
-    <div className={styles.nav}>
+    <nav className={styles.nav}>
       <p>League of Legends Universe</p>
       <nav>
         <ul className={styles.navlinks}>
@@ -49,21 +49,21 @@ export function Navigation () {
       </nav>
       {username
         ? (
-          <div className={styles.userlogged}>
+          <section className={styles.userlogged}>
             <Link href={`/users/${username}`}><p>{username.charAt(0).toUpperCase() + username.slice(1)}</p></Link>
             <p onClick={handleLogout} className={styles.logout}>Logout</p>
-          </div>
+          </section>
           )
         : (
-          <div className={styles.users}>
+          <section className={styles.users}>
             <Link href='/users/login'>
               <p className={styles.login}>Login</p>
             </Link>
             <Link href='/users/signup'>
               <p className={styles.signup}>Signup</p>
             </Link>
-          </div>
+          </section>
           )}
-    </div>
+    </nav>
   )
 }

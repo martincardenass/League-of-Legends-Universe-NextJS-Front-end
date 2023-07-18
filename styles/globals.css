@@ -9,12 +9,24 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     background: black;
     color: white;
     font-family: var(--textfont);
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: white;
+}
+
+article {
+    flex: 1;
 }

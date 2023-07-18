@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { Navigation } from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import { ContextProvider } from '@/components/context' // * import context
 
 export const metadata = {
@@ -13,8 +14,10 @@ export default function RootLayout ({ children }) {
       <title>League of Legends Universe</title>
       <body>
         <Navigation />
-        {/* Wrapping up the app with the context provider */}
-        <ContextProvider>{children}</ContextProvider>
+        <article>
+          <ContextProvider>{children}</ContextProvider>
+        </article>
+        <Footer />
       </body>
     </html>
   )
