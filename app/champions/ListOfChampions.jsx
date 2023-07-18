@@ -33,15 +33,15 @@ export default async function ListOfChampions () {
                 quality={100}
               />
               <h2>{champs.name}</h2>
-              <section className={styles.icons}>
-                <Link href={`regions/${champs.region_Name}`}>
-                  <Image src={champs.region_Emblem} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
-                </Link>
-                <Link href={`roles/${champs.role_Name}`}>
-                  <Image src={champs.role_Icon} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
-                </Link>
-              </section>
             </Link>
+            <section className={styles.icons}>
+              <Link href={`regions/${champs.region_Name}`}>
+                <Image src={champs.region_Emblem} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
+              </Link>
+              <Link href={`roles/${champs.role_Name}`}>
+                <Image src={champs.role_Icon} alt={champs.region_Name} style={{ maxWidth: '100%', height: '100%' }} width={50} height={0} />
+              </Link>
+            </section>
           </li>
         ))}
       </ul>

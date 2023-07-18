@@ -23,19 +23,24 @@ export default async function RegionPage ({ params }) {
             alt={region.name}
             width={2000}
             height={0}
+            quality={100}
             className={styles.bannerimg}
           />
         </header>
         <header className={styles.bannercontent}>
-          <Image className={styles.bannercontentimg} src={region.emblem} alt={region.name} width={400} height={425} />
+          <Image className={styles.bannercontentimg} src={region.emblem} alt={region.name} width={300} height={425} style={{ maxWidth: '100%', height: 'auto' }} />
           <h1>{region.name}</h1>
         </header>
-        <p className={styles.regiondesc} dangerouslySetInnerHTML={{ __html: region.description }} /> {/* Pass as html */}
+        <section className={styles.regiondesc}>
+          <div className={styles.regiondesccontent}>
+            <p dangerouslySetInnerHTML={{ __html: region.description }} />
+          </div>
+        </section>
       </main>
-      <section className={styles.recommendations}>
-        <article className={styles.championsregion}>
+      <article className={styles.recommendations}>
+        <section className={styles.championsregion}>
           <h1>Champions of {region.name}:</h1>
-          <ul>
+          <ul className={styles.championlist}>
             {champsByRegion.map((cbyr) => (
               <li key={cbyr.champion_Id}>
                 <Link href={`/champions/${cbyr.name}`}>
@@ -43,7 +48,7 @@ export default async function RegionPage ({ params }) {
                     src={cbyr.champ_Icons}
                     alt={cbyr.name}
                     width={100}
-                    height={0}
+                    height={100}
                     style={{ maxWidth: '100%', height: 'auto' }}
                   />
                   <h2>{cbyr.name}</h2>
@@ -54,24 +59,26 @@ export default async function RegionPage ({ params }) {
               </li>
             ))}
           </ul>
-        </article>
-        <h1>Explore other regions:</h1>
-        <ul>
-          {filteredRegions.map((region) => (
-            <li key={region.region_id}>
-              <Link href={`/regions/${region.name}`}>
-                <Image
-                  src={region.emblem}
-                  alt={region.name}
-                  width={250}
-                  height={0}
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+        </section>
+        <section className={styles.championsregion}>
+          <h1>Explore other regions:</h1>
+          <ul className={styles.championlist}>
+            {filteredRegions.map((region) => (
+              <li key={region.region_id}>
+                <Link href={`/regions/${region.name}`}>
+                  <Image
+                    src={region.emblem}
+                    alt={region.name}
+                    width={150}
+                    height={0}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </article>
     </>
   )
 }

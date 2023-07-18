@@ -66,7 +66,7 @@ const Icons = ({ champion }) => {
           <Image
             className={styles.icons}
             src={champion.role_Icon}
-            alt={champion.role_Nmae}
+            alt={champion.role_Name}
             width={75}
             height={75}
             style={{ maxWidth: '100%', height: 'auto' }}

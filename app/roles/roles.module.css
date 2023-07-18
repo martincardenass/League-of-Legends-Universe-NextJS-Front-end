@@ -1,0 +1,21 @@
+.main {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;  
+}
+
+.main ul {
+    list-style: none;
+}
+
+.roles {
+    display: flex;
+    gap: 3rem;
+}
+
+
+.images {
+    align-items: center;
+    text-align: center;
+}

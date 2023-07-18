@@ -1,0 +1,58 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    width: 100%;
+    border-top: 1px solid #997a00;
+    border-bottom: 1px solid #997a00;
+    background-color: #07006d27;
+    padding: 2.5rem 0;
+}
+
+.bodycontainer {
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+}
+
+.userside {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewside {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userside h2 {
+    font-size: 75px;
+    margin: 0;
+}
+
+.userside h2::first-letter {
+    text-transform: capitalize;
+}
+
+.reviewside h3 {
+    font-size: 48px;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.reviewside p {
+    font-size: 24px;
+    margin: 0;
+}
+
+.editpencil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,59 @@
+.body {
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    text-align: center;
+    background-color: green;
+    padding: 0rem 2.5rem 2.5rem 2.5rem;
+    border: 1px solid #997a00;
+    background-color: #07006d27;
+    border-radius: 5px;
+}
+
+.banner h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+.banner a:hover {
+    color: cyan;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.forminput {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.forminput input {
+    width: 150px;
+    height: 35px;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+.form input[type='submit'] {
+    padding: 1rem;
+    font-size: 18px;
+    background-color: rgb(255, 230, 86);
+    cursor: pointer;
+    border: none;
+}
+
+.form input[type='submit']:hover {
+    background-color: rgb(255, 217, 0);
+}

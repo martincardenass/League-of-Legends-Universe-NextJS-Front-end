@@ -13,14 +13,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    grid-row: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .bannercontent h1 {
-    /* border: 10px solid #ffffff; */
     padding: 2rem;
     margin-top: -20px;
     font-size: 100px;
@@ -46,7 +44,7 @@
     max-width: 100%;
     width: 100%;
     object-fit: cover;
-    height: auto;
+    height: 100vh;
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
 }
@@ -58,13 +56,49 @@
 }
 
 .regiondesc {
-    width: 50%;
-    margin: 0 5rem;
     padding: 2rem;
-    border: 2px solid white;
+    background-color: black;
     text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.regiondesccontent {
+    width: 50%;
+    font-size: 24px;
 }
 
 .recommendations {
     display: flex;
+    justify-content: center;
+}
+
+.recommendations ul {
+    list-style: none;
+}
+
+.championsregion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.championlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+.championsregion h1 {
+    font-size: 50px;
+}
+
+.championlist h2 {
+    margin: 0;
 }
